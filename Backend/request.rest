@@ -1,0 +1,105 @@
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+
+ "username": "rani25",
+ "password": "rani25"
+
+}
+###
+POST http://localhost:3000/registerumkm
+Content-Type: application/json
+
+{
+
+ "username": "rani25",
+ "password": "rani25"
+
+}
+
+###
+GET http://localhost:3000/user
+Content-Type: application/json
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+     "username": "rani25",
+     "password": "rani25"
+}
+
+###
+POST http://localhost:3000/upload
+Content-Type: application/json
+
+{
+     "Jenis":"Berat",
+     "Nama":"Ombus-ombus",
+     "Gambar":"this pict"
+}
+###
+POST http://localhost:3000/loginadm
+Content-Type: application/json
+
+{
+    "username":"user1",
+    "password":"password1"
+}
+
+###
+GET http://localhost:3000/allupload
+Content-Type: application/json
+
+###
+POST http://localhost:3000/userdata
+Content-Type: application/json
+
+{
+     "Nama": "Rani",
+     "Email": "ranishb@gamil.com",
+     "NoHp": "08227711",
+     "TempatLahir": "Lintongnihuta",
+     "TgglLahir": "2024-09-19",
+     "Jenkel": "Perempuan"
+}
+
+###
+GET http://localhost:3000/getdatauser
+Content-Type: application/json
+
+###
+
+# POST http://localhost:3000/upload
+# Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="thumbnail"; filename="ikan.jpeg"
+# Content-Type: image/jpeg
+
+# images/ikan
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="nama"
+
+# John Doe
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="email"
+
+# johndoe@example.com
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="nohp"
+
+# 1234567890
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="tempatusaha"
+
+# Toko Baju
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="alamatusaha"
+
+# Jl. Raya No. 123
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
