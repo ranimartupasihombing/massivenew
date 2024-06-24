@@ -1,60 +1,71 @@
-import React from 'react'
-import umkm1 from '../Assets/img/rian.png'
+import React, { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { FaBookmark, FaClock, FaMapMarkerAlt, FaInfoCircle } from 'react-icons/fa';
+import { ProductContext } from './Product';
+import { useBookmark } from './BookmarkContext';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import UlasanBikaAmbon from './UlasanBikaAmbon';
-const Detailumkm = () => {
-	const peta = () => {
-		window.location.href = '/Maps'; // Mengarahkan pengguna ke URL "/menu"
-	  };
-	  const ulasan = () => {
-		window.location.href = '/Loginhome'; // Mengarahkan pengguna ke URL "/menu"
-	  };
-	  const lihatulasan = () => {
-		window.location.href = '/UlasanBikaAmbon';
-	  };
-	return (
-    <>
-    <Navbar/>
-  	<div className="detail-umkm">
-    		<b className="mamank-kuliner">Mamank kuliner</b>
-    		<img className="img-umkm" alt="" src={umkm1}/>
-    		<div class="rectangle-parent-umkm">
-      			<div class="group-child-umkm">
-      			</div>
-      			
-    		</div>
-    		<b className="bika-ambon-rian-umkm">Bika Ambon Rian</b>
-    		<div className="rp-35000">Rp 35.000</div>
-    		<div className="detail-umkm-child">
-    		</div>
-    		
-    		
-    		
-    		<div classname="lihar-ulasan-warpper">
-    		<b className="lihat-ulasan" id="lihatUlasanText" onClick={lihatulasan}>Lihat ulasan</b>
-			</div>
-    		
-    		<div className="beri-ulasan-wrapper">
-      			<b className="beri-ulasan" id="beriUlasanText" onClick={ulasan}>Beri ulasan</b>
-    		</div>
-    		<b className="informasi-kontak">Informasi Kontak</b>
-    		<div className="divkontak">085277116735</div>
-    		<div className="jl-sumatera-no78-umkm">Jl. Sumatera No.78, Belawan I, Medan Kota Belawan, Kota Medan, Sumatera Utara 20411</div>
-    		<div className="bika-ambon-adalah-umkm">Bika Ambon adalah kue tradisional Indonesia yang terkenal dengan teksturnya yang lembut dan rasa manisnya yang khas.</div>
-    		<div className="divjam">08.00-22.00</div>
-    		
-    		<b className="lihat-di-maps-container" id="lihatDiMaps">Lihat di
-      			<span className="privacy-policy" onClick={peta}>Maps</span>
-    		</b>
-  	</div>
-  	
-  	
-  	
-  	
-  	<Footer/>
-    </>
-  )
-}
+import imgumkm from '../Assets/img/rian.png'; // Fallback image
 
-export default Detailumkm
+const Detailumkm = () => {
+  const { id } = useParams();
+  const { products } = useContext(ProductContext);
+  const { bookmarkedItems, toggleBookmark } = useBookmark();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    const productData = products.find((p) => p.id === parseInt(id));
+    setProduct(productData);
+  }, [id, products]);
+
+  const isBookmarked = product && bookmarkedItems.some((item) => item.id === product.id);
+
+  if (!product) return <div>Loading...</div>;
+
+  return (
+    <>
+      <Navbar />
+      <div className="detail-umkm">
+        <b className="mamank-kuliner">Mamank kuliner</b>
+        <img className="img-umkm" alt={product.name} src={imgumkm} />
+        <div className="rectangle-parent-umkm">
+          <div className="group-child-umkm"></div>
+        </div>
+        <div className="bika-ambon-rian-umkm">
+          <b>{product.name}</b>
+          <button className="bookmark-button" onClick={() => toggleBookmark(product)} style={{ background: 'none', border: 'none' }}>
+            <FaBookmark color={isBookmarked ? 'gold' : 'grey'} size={24} />
+          </button>
+        </div>
+        <div className="rp-35000">Rp {product.priceRange}</div>
+        <div className="detail-umkm-child"></div>
+
+        <div className="lihat-ulasan-wrapper">
+          <b className="lihat-ulasan" id="lihatUlasanText" onClick={() => window.location.href = `/ulasanbikaambon/${product.id}`}>Lihat ulasan</b>
+        </div>
+
+        <div className="beri-ulasan-wrapper">
+          <b className="beri-ulasan" id="beriUlasanText" onClick={() => window.location.href = `/tulisulasan/${product.id}`}>Beri ulasan</b>
+        </div>
+        <b className="informasi-kontak">Informasi Kontak</b>
+        <div className="divkontak">{product.contact}</div>
+        <div className="jl-sumatera-no78-umkm">
+          <FaMapMarkerAlt /> {product.address}
+        </div>
+        <div className="bika-ambon-adalah-umkm">
+          <FaInfoCircle /> {product.description}
+        </div>
+        <div className="divjam">
+          <FaClock /> {product.hours}
+        </div>
+
+        <b className="lihat-di-maps-container" id="lihatDiMaps">Lihat di
+          <span className="privacy-policy" onClick={() => window.location.href = '/maps'}>Maps</span>
+        </b>
+      </div>
+      <Footer />
+    </>
+  );
+};
+
+export default Detailumkm;

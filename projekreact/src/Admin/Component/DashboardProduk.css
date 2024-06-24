@@ -1,0 +1,122 @@
+.dashboard-produk_produk {
+    padding: 20px;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .home_produk,
+  .produk-header_produk {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .tambah-produk-button_produk {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .tambah-produk-button_produk:hover {
+    background-color: #0056b3;
+  }
+  
+  .table-container_produk {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    padding: 20px;
+  }
+  
+  .produk-table_produk {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .produk-table_produk th,
+  .produk-table_produk td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .produk-table_produk th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .produk-table_produk tr {
+    transition: background-color 0.2s ease;
+  }
+  
+  .produk-table_produk tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .produk-table_produk tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .icon_produk {
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.2s ease;
+  }
+  
+  .icon_produk:hover {
+    color: #007bff;
+  }
+  
+  .delete-popup_produk {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
+  }
+  
+  .delete-message_produk {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .delete-buttons_produk button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .delete-buttons_produk button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-buttons_produk button:last-child {
+    background-color: #6c757d;
+  }
+  
+  .delete-buttons_produk button:last-child:hover {
+    background-color: #5a6268;
+  }

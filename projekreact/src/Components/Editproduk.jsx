@@ -1,12 +1,13 @@
-import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ProductContext } from './Product';
 import './Index.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-const Upload = () => {
-  const { addProduct } = useContext(ProductContext);
+const EditProduct = () => {
+  const { products, updateProduct } = useContext(ProductContext);
+  const { id } = useParams();
   const navigate = useNavigate();
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
@@ -17,6 +18,24 @@ const Upload = () => {
   const [thumbnail, setThumbnail] = useState(null);
   const [openHour, setOpenHour] = useState('');
   const [closeHour, setCloseHour] = useState('');
+
+  useEffect(() => {
+    const product = products.find((p) => p.id === parseInt(id));
+    if (product) {
+      setProductName(product.name);
+      setProductDescription(product.description);
+      setAddress(product.address);
+      setContact(product.contact);
+      setSelectedCategory(product.category);
+      setPriceRange(product.priceRange);
+      setThumbnail(product.thumbnail);
+      if (product.hours) {
+        const [open, close] = product.hours.split('-');
+        setOpenHour(open);
+        setCloseHour(close);
+      }
+    }
+  }, [id, products]);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
@@ -30,18 +49,18 @@ const Upload = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newProduct = {
-      id: Date.now(), // Use a unique ID for each product
+    const updatedProduct = {
+      id: parseInt(id),
       name: productName,
-      category: selectedCategory,
-      priceRange,
-      thumbnail,
       description: productDescription,
       address,
       contact,
-      hours: `${openHour} - ${closeHour}`, // Include open and close hours
+      category: selectedCategory,
+      priceRange,
+      thumbnail,
+      hours: `${openHour}-${closeHour}`, // Use the open and close hours
     };
-    addProduct(newProduct);
+    updateProduct(updatedProduct);
     navigate('/dashboard');
   };
 
@@ -49,7 +68,7 @@ const Upload = () => {
     <>
       <Navbar />
       <div className="form-container_editproduk">
-        <h2 className="title_editproduk">Unggah Produk</h2>
+        <h2 className="title_editproduk">Edit Produk</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group_editproduk">
             <label className="label_editproduk">Nama produk</label>
@@ -152,7 +171,7 @@ const Upload = () => {
           </div>
 
           <div className="form-group_editproduk">
-            <button type="submit" className="upload-button_editproduk">Unggah Produk</button>
+            <button type="submit" className="upload-button_editproduk">Simpan Perubahan</button>
           </div>
         </form>
       </div>
@@ -161,4 +180,4 @@ const Upload = () => {
   );
 };
 
-export default Upload;
+export default EditProduct;

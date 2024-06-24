@@ -1,12 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../Component/Adminlogin.css";
-import profilimg from "../../Assets/img/Pengertian-Freelancer.png"
-
+import profilimg from "../../Assets/img/Pengertian-Freelancer.png";
 
 const AdminLogin = () => {
-  const adminlogin = () => {
-		window.location.href = '/DashboardAdmin'; // Mengarahkan pengguna ke URL "/menu"
-	  };
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/Admin");
+  };
+
   return (
     <div className="admin-login-admin">
       <div className="login-admin">LOGIN</div>
@@ -19,17 +22,13 @@ const AdminLogin = () => {
         <b className="email-admin">Email</b>
         <b className="kata-sandi-admin">Kata Sandi</b>
         <div className="form-email-login-admin">
-          
-            <input class="form-verifikasi-child" id="inputnama" placeholder="Mauskan email"/>
-          
+          <input className="form-verifikasi-child" id="inputnama" placeholder="Masukkan email" />
         </div>
         <div className="form-password-login-admin">
-          
-            <input class="form-verifikasi-child" id="inputnama" placeholder="Mauskan kata sandi"/>
-        
+          <input className="form-verifikasi-child" id="inputnama" placeholder="Masukkan kata sandi" />
         </div>
-        <div className="button-admin">
-        <b className="masuk-admin" id="masukText"  onClick={adminlogin}>
+        <div className="button-admin" onClick={handleLoginClick} style={{ cursor: 'pointer' }}>
+          <b className="masuk-admin" id="masukText">
             Masuk
           </b>
         </div>
@@ -41,6 +40,6 @@ const AdminLogin = () => {
       />
     </div>
   );
-}
+};
 
 export default AdminLogin;

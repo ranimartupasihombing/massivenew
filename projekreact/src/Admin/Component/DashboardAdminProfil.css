@@ -1,0 +1,53 @@
+.dashboard-admin-profil_profil {
+    padding: 20px;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .home_profil,
+  .admin_profil {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .table-container_profil {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    padding: 20px;
+  }
+  
+  .admin-table_profil {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .admin-table_profil th,
+  .admin-table_profil td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .admin-table_profil th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .admin-table_profil tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .admin-table_profil tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .admin-table_profil tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .admin-table_profil td {
+    background-color: #fff;
+  }

@@ -6,13 +6,13 @@ import { register } from './api'; // Import your register function
 import { useNavigate } from 'react-router-dom';
 
 const Daftar = () => {
-  const [registerUsername, setRegisterUsername] = useState('');
+  const [registeremail, setRegisteremail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const navigate = useNavigate();
 
   const handleRegister = async () => {
     try {
-      const response = await register(registerUsername, registerPassword);
+      const response = await register(registeremail, registerPassword);
       console.log(response);
       navigate('/login1');
     } catch (error) {
@@ -21,7 +21,7 @@ const Daftar = () => {
   };
 
   const redirectToLogin = () => {
-    navigate('/login1');
+    navigate('login1');
   };
 
   return (
@@ -38,14 +38,14 @@ const Daftar = () => {
           <b className="kata-sandi">Kata Sandi</b>
           <div className="form-email-login2" id="formEmailLogin">
             <input
-              className="form-email-login-child"
+              className="form-email-login"
               placeholder="Email"
-              value={registerUsername}
-              onChange={(e) => setRegisterUsername(e.target.value)}
+              value={registeremail}
+              onChange={(e) => setRegisteremail(e.target.value)}
             />
           </div>
           <input
-            className="form-password-login-child"
+            className="form-password-login"
             type="password"
             placeholder="Password"
             value={registerPassword}
@@ -54,7 +54,6 @@ const Daftar = () => {
         </form>
 
         <div className="button" onClick={handleRegister}>
-          <img className="button-child" alt="" src="Rectangle 9.svg" />
           <b className="masuk">Daftar</b>
         </div>
 

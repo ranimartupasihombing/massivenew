@@ -1,0 +1,68 @@
+.dashboard-pengguna_pengguna {
+    padding: 20px;
+  }
+  
+  .home_pengguna,
+  .pengguna_pengguna {
+    
+    font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  }
+  
+  .table-container_pengguna {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .pengguna-table_pengguna {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Tambahkan CSS lainnya sesuai kebutuhan */
+  
+  
+  .pengguna-table_pengguna th,
+  .pengguna-table_pengguna td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .pengguna-table_pengguna th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .pengguna-table_pengguna td {
+    background-color: #fff;
+  }
+  
+  .pengguna-table_pengguna tr:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .edit-icon_pengguna,
+  .trash-icon_pengguna,
+  .show-icon_pengguna,
+  .correct-icon_pengguna {
+    margin-right: 5px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+  }
+  
+  .edit-icon_pengguna:hover,
+  .trash-icon_pengguna:hover,
+  .show-icon_pengguna:hover,
+  .correct-icon_pengguna:hover {
+    color: #666;
+  }
+
+
+  

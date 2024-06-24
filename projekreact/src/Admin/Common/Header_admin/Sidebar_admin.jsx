@@ -9,17 +9,17 @@ const Sidebar = ({ openSidebarToggle }) => {
             <div className="profile-admin">
                 <img src={profilePic} alt="Profile Picture" className="profile-pic-admin" />
                 <div className="profile-info-admin">
-                    <h2>Daniel</h2>
+                    <h2>Gantara</h2>
                     <p>Administrator</p>
                 </div>
             </div>
             <div className="menu-admin">
                 <Link to="/admin/beranda" className="menu-item-admin">Beranda</Link>
                 <Link to="/admin/admins" className="menu-item-admin">Admin</Link>
-                <Link to="/admin/products" className="menu-item-admin">Product</Link>
-                <Link to="/admin/users" className="menu-item-admin">Users</Link>
-                <Link to="/logout" className="menu-item-admin">Logout</Link>
-            </div>
+                <Link to="/admin/users" className="menu-item-admin">Pengguna</Link>
+                <Link to="/admin/umkm" className="menu-item-admin">Umkm</Link>
+                <Link to="/AdminLogin" className="menu-item-admin">Keluar</Link>
+            </div>  
         </div>
     );
 };

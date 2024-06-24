@@ -1,0 +1,62 @@
+.dashboard-umkm_umkm {
+    padding: 20px;
+  }
+  
+  .home_umkm,
+  .umkm_umkm {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+  }
+  
+  .table-container_umkm {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .umkm-table_umkm {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .umkm-table_umkm th,
+  .umkm-table_umkm td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .umkm-table_umkm th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .umkm-table_umkm td {
+    background-color: #fff;
+  }
+  
+  .umkm-table_umkm tr:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .edit-icon_umkm,
+  .trash-icon_umkm,
+  .show-icon_umkm,
+  .correct-icon_umkm {
+    margin-right: 5px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+  }
+  
+  .edit-icon_umkm:hover,
+  .trash-icon_umkm:hover,
+  .show-icon_umkm:hover,
+  .correct-icon_umkm:hover {
+    color: #666;
+  }
+  

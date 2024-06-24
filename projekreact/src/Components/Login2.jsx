@@ -1,10 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Index.css'
 import lambang from "../Assets/img/lambang.png"
 import home from '../Assets/img/1.png'
-import {Link } from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
+import { login } from './api'
 
 const Login2 = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault(); 
+
+    try {
+      const response = await login(email, password);
+      console.log(response); 
+      if (response.success) {
+        // Simpan token ke local storage atau session storage
+        localStorage.setItem('token', response.token);
+        navigate('/Umkmprofile');
+      } else {
+        alert(response.message); 
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  };
+  
+
   return (
     
     
@@ -14,23 +38,35 @@ const Login2 = () => {
 <img className="lambanglog" alt="" src={lambang}/>
 <div className="rectanglelogin" alt="" src=""/>
 <b className="masukdaftarlog">Masuk/Daftar</b>
+<form onSubmit={handleLogin}>
 <b className="email">Email</b>
 <b className="kata-sandi">Kata Sandi</b>
 <div className="tidak-punya-akun-container" id="tidakPunyaAkun">Tidak punya akun?
 <Link to='/Daftar2' className="daftar-di-sini">Daftar Di sini!</Link>
 </div>
 <div className="form-email-login2" id="formEmailLogin">
-<input className="form-email-login-child">
+<input className="form-login-umkm-child"
+type='email'
+placeholder='Email'
+value={email}
+onChange={(e) => setEmail(e.target.value)}
+required>
 </input>
 </div>
-<input className="form-password-login-child">
+<input className="form-password-login-child"
+type='password'
+placeholder='Password'
+value={password}
+onChange={(e) => setPassword(e.target.value)}
+required>
 </input>
 
 <div className="button">
-<img className="button-child" alt="" src="Rectangle 9.svg"/>
-<Link to='/Umkmprofile' className="masuk">Masuk</Link>
-</div> 
+  <button type='submit' className='button-child masuk' onClick={handleLogin}>Masuk
 
+</button>
+</div> 
+</form>
       </div>
      
   )

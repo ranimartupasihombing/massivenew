@@ -6,20 +6,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import { login } from './api'; // Pastikan Anda mengimpor fungsi login yang benar dari API Anda
 
 const Login1 = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     try {
-      const response = await login(email, password);
-      console.log(response); 
+      const response = await login(username, password);
+      console.log(response);
       if (response.success) {
-        navigate('/');
+        // Simpan token ke local storage atau session storage
+        localStorage.setItem('token', response.token);
+        navigate('/profiluser');
       } else {
-        alert(response.message); 
+        alert(response.message);
       }
     } catch (error) {
       console.error('Login error:', error);
@@ -42,11 +44,11 @@ const Login1 = () => {
           </div>
           <div className="form-email-login2" id="formEmailLogin">
             <input
-              className="form-email-login-child"
+              className="form-login-umkm-child"
               type="email"
               placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
